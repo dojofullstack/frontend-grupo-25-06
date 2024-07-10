@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+        <h1>Formularios en HTML</h1>
+    </header>
+    
+   
+    <main>
+
+
+        <form method="post" action="/api/formularios" >
+            
+            <h2>Iniciar Sesion</h2>
+
+            <label for="nombre">Nombre:</label>
+            <input  type="text" placeholder="INgresa tu nombre" required  name="nombre" id="nombre"  >
+            
+            <br>
+
+            <label for="contrasena">Contrasena:</label>
+            <input type="password" placeholder="Contrasena" required name="contrasena" id="contrasena">
+            
+            <br>
+            <input type="submit" value="Iniciar">
+
+            <!-- <button>Iniciar Sesion</button> -->
+            
+        </form>
+
+
+        <hr>
+
+
+        <form method="post" action="https://webhook.site/cdc6f39a-21d5-438c-b5af-68dabcde4c1a">
+
+            <h2>Contactanos Empresa</h2>
+
+            <fieldset>
+                <legend>Reserva tu cita</legend>
+                <label for="email">Email:</label>
+                <input type="email" placeholder="Correo Bussines" name="email" id="email" >
+    
+                <input type="date" name="cita" id="cita">
+    
+                <input type="datetime-local" name="" id="">
+            </fieldset>
+
+
+            <fieldset>
+                <legend>Personlizar Torta</legend>
+                
+                <h3>Elige la Fruta</h3>
+                <div>
+                    <label for="Cereza">Cereza</label>
+                    <input type="checkbox" value="Cereza" name="fruta" id="Cereza" >
+    
+                    <label for="Durazno">Durazno</label>
+                    <input type="checkbox" value="Durazno" name="fruta" id="Durazno" >
+    
+                    <label for="Fresas">Fresas</label>
+                    <input type="checkbox" value="Fresas" name="fruta" id="Fresas">
+                </div>
+         
+                
+                <hr>
+
+                <h3>Elige la crema chantillí</h3>
+                <div>
+                    <label for="vainilla">vainilla</label>
+                    <input type="radio" name="chantilli" id="vainilla" value="vainilla">
+
+                    <label for="moca">moca</label>
+                    <input type="radio" name="chantilli" id="moca" value="moca">
+    
+                    <label for="menta">menta</label>
+                    <input type="radio" name="chantilli" id="menta" value="menta">
+                </div>
+          
+
+                <input type="submit" value="Preparar Torta">
+
+            </fieldset>
+
+        </form>
+
+
+
+
+        <form method="post" action="https://enpf9fjsejzdq.x.pipedream.net">
+
+
+            <fieldset>
+                <legend>Documentancion Vehicular</legend>
+
+                <input type="file" name="documento" id="documento" accept=".pdf, .doc, .docx" >
+                <br>
+
+                <label for="matricula">N. de matricula </label>
+                <input type="number" placeholder="Numero M.V" id="matricula" name="matricula">
+
+
+                <input type="range" min="10" max="100" name="" id="" >
+
+
+                <label for="profile">Red Social </label>
+                <input type="url" name="profile" id="profile">
+
+                <input type="submit" value="Enviar datos" name="" id="">
+
+
+                <input type="hidden" value="01029001920192" name="" id="">
+
+
+            </fieldset>
+
+
+
+            <fieldset>
+                <legend>Datos Adicionales Person</legend>
+
+                <select name="pais" id="pais">
+                    <option value="pe">PERU</option>
+                    <option value="mx">MEXICO</option>
+                    <option value="ec">Ecuador</option>
+                    <option value="bo">Bolivia</option>
+                </select>
+
+
+                <input type="submit" value="Enviar pais">
+
+            </fieldset>
+
+
+
+        </form>
+
+    </main>
+
+
+
+        <footer>
+
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, incidunt fugiat et nam voluptate cum doloribus officia ab debitis velit reprehenderit aspernatur perspiciatis molestias nesciunt aut voluptas dolorum delectus eligendi.
+                <br>
+                <br>
+    
+            </p>
+
+        </footer>
+
+    
+    
+</body>
+</html>
