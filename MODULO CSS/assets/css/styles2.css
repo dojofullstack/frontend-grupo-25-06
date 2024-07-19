@@ -1,0 +1,40 @@
+
+
+* {
+    font-family: "Playwrite PE", cursive;
+}
+
+
+.catalogo {
+    margin: 50px;
+    border: 5px solid green;
+}
+
+
+.card-product {
+    margin: 5px;
+    border: 3px solid purple;
+    padding: 20px;
+    background-color: beige;
+    display: inline-block;
+    width: 200px;
+}
+
+
+.title {
+    display: inline-block;
+    width: 90px;
+    background-color: yellow;
+}
+
+
+.precio {
+    display: block;
+    font-weight: bold;
+    font-size: 30px;
+    color: green;
+}
+
+div {
+    position: static;
+}

@@ -1,0 +1,126 @@
+
+* {
+    font-family: "Playwrite PE", cursive;
+}
+
+/* body, main, html {
+    margin: 0;
+    padding: 0;
+} */
+
+
+
+body {
+    margin: 0;
+    background-color: goldenrod;
+}
+
+
+
+p {
+    font-weight: 100;
+    font-style: normal;
+    line-height: 30px;
+    text-decoration: underline;
+    text-align: right !important;
+    text-transform: lowercase;
+}
+
+
+main {
+    background-color: azure;
+    text-align: center;
+}
+
+
+
+a {
+    text-decoration: none;
+}
+
+
+#mural-foto {
+    width: 100%;
+    height: 500px;
+    background-image: linear-gradient(rgba(181, 12, 12, 0.353), rgba(73, 21, 177, 0.52), rgba(113, 214, 24, 0.72) ),  url(https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/mural-of-quechan-women-by-machu-picchu-in-aguas-calientes-peru-ruth-hager.jpg) ;
+    /* background-image:  url(https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/mural-of-quechan-women-by-machu-picchu-in-aguas-calientes-peru-ruth-hager.jpg) ; */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+#btn-cart {
+    background-color: black;
+    color: yellow;
+    width: 200px;
+    height: 35px;
+    text-align: center;
+    border-radius: 20px;
+    border: 5px solid yellow;
+    /* padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px; */
+    padding: 10px 20px;
+    margin: 30px;
+    cursor: pointer;
+}
+
+
+
+.container-contacto {
+    background-color: green;
+    width: 300px;
+    height: 150px;
+    margin: 10px;
+}
+
+.anuncio {
+    background-image: url(https://i.ytimg.com/vi/Uhfzyfe7nT0/maxresdefault.jpg) ;
+    background-size: contain;
+}
+
+
+.container-demo-1 , #container-demo-2 {
+
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+    height: 100px;
+    border: 5px solid purple;
+    margin: 5px;
+}
+
+
+
+article.container-demo-1 {
+    border: 5px solid orange;
+    background-color: aquamarine;
+}
+
+
+.btn-especial {
+    border: none;
+    background-color: purple;
+    color: white;
+    border-radius: 20px;
+    font-size: 20px;
+}
+
+
+
+div.container-abuelo div.container-padre:nth-child(1) div.container-hijo button.btn-especial {
+    background-color: black;
+    color: yellow;
+}
+
+
+
+body > main > button.btn-especial {
+    background-color: orange;
+}
+
+body > main > div.container-abuelo > div:nth-child(2) > div > button.btn-especial {
+    background-color: green;
+    color: yellow;
+}
