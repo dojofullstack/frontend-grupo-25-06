@@ -1,0 +1,122 @@
+
+
+.box-1 {
+
+    width: 200px;
+    height: 200px;
+    background-color: purple;
+
+    position: relative;
+    top: 200px;
+    left: 100px;
+
+}
+
+
+p {
+    background-color: yellow;
+    position: relative;
+    z-index: 99;
+}
+
+
+
+.box-2 {
+    z-index: 100;
+
+    width: 200px;
+    height: 200px;
+    background-color: orange;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+}
+
+
+main {
+    border: 5px solid red;
+    position: relative;
+
+}
+
+.fenix {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 120;
+}
+
+.fenix-2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 120;
+}
+
+.fenix-3 {
+    position: absolute;
+    left: 50px;
+    bottom: 20px;
+    z-index: 120;
+}
+
+
+.bi-whatsapp {
+    color: green;
+    font-size: 80px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+
+.wasap {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 99999;
+}
+
+
+.bi-twitter {
+    font-size: 30px;
+    color: skyblue;
+}
+
+
+.logo-blog {
+    display: inline-block;
+    color: skyblue;
+}
+
+
+header {
+    background-color: black;
+    color: white;
+    padding: 20px 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    width: 100%;
+}
+
+
+input {
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 20px;
+    margin-left: 50px;
+}
+
+
+.login {
+    background-color: white;
+    height: 200px;
+    z-index: 999999;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
