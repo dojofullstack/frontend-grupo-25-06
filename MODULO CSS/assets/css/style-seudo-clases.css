@@ -1,0 +1,86 @@
+
+
+
+/* aplicando seudo clases hover */
+
+button {
+    margin: 20px;
+    background: purple;
+    font-size: 20px;
+    padding: 20px 30px;
+    color: white
+}
+
+
+button:hover {
+    transform: scale(1.2);
+    background: pink;
+}
+
+.gato:hover {
+    transform: scale(2);
+}
+
+
+.p-foco:hover {
+    font-size: 20px;
+    background-color: yellow;
+}
+
+.email {
+    padding: 20px 10px;
+    font-size: 20px;
+    font-style: italic;
+    border-radius: 20px;
+    border: 5px solid limegreen;
+}
+
+
+.email:focus {
+    color: lightgreen;
+    font-size: 25px;
+}
+
+
+button:focus {
+    background-color: orange;
+}
+
+.comentario {
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+
+.comentario:focus {
+    background-color: skyblue;
+    color: blue;
+}
+
+.comprar:active {
+    transform: scale(2);
+    background-color: aqua;
+}
+
+.sitio:active {
+    background-color: orange;
+}
+
+
+.articulo-betseller {
+    background-color: aquamarine;
+    padding: 10px;
+}
+
+.articulo-betseller:first-child {
+    background-color: brown;
+}
+
+.articulo-betseller:last-child {
+    background-color: peru;
+}
+
+.articulo-betseller:nth-child(3) {
+    background-color: red;
+}

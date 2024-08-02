@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+    font-family: "Rubik", sans-serif;
+}
+
+.tweet {
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgba(12, 1, 1, 0.881);
+    color: white;
+    gap: 5px;
+    /* justify-content: space-between; */
+}
+
+
+
+img {
+    height: 40px;
+    border-radius: 50%;
+}
+
+
+.face {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.bi-patch-check-fill {
+    color: aqua;
+    font-size: 20x;
+}
+
+.name, .username {
+    margin: 0;
+}
+
+.container-profile {
+    padding: 10px;
+}
+
+.suscribe {
+    border: none;
+    background-color: white;
+    border-radius: 20px;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment {
+    padding: 5px;
+    font-size: 20px;
+}
+
+.tag {
+    color: aqua;
+    margin-top: 5px;
+    display: block;
+}
+
+.timeline {
+    color: gainsboro;
+    margin-top: 5px;
+    display: block;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    padding: 10px;
+}
+
+
+div.actions div span {
+    margin-left: 5px;
+}
