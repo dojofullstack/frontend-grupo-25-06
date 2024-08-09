@@ -1,0 +1,12 @@
+
+:root {
+    --primary: pink;
+    --secondary: hsla(240, 52%, 57%, 0.608);
+    --info: 15.5px;
+}
+
+
+
+h1 {
+    color: var(--dojofullstack);
+}

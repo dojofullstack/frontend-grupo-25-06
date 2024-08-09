@@ -1,0 +1,97 @@
+
+
+
+.flex {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.item {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: aqua;
+}
+
+.btn {
+    background-color: rgb(231, 15, 231);
+    font-size: 25px;
+    color: white;
+}
+
+
+.banner {
+    width: 100%;
+    height: 300px;
+    background-image: url(https://png.pngtree.com/png-clipart/20210620/original/pngtree-business-simple-geometric-gourmet-restaurant-promotion-banner-png-image_6445516.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+@media (max-width: 500px) {
+
+    .banner {
+        background-image: url(https://img.pikbest.com/origin/09/15/77/40QpIkbEsTJnr.png!w700wp);
+        border-radius: 50px;
+    }
+
+
+    .btn {
+        background-color: blue;
+        font-size: 16px;
+        color: white;
+    }
+
+}
+
+
+@media (min-width: 500px) {
+    .banner {
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW6QvPQUd7sFlEslcUb1CssRKYIZI__0kkIg&s);
+        border-radius: 50px;
+    }
+
+
+    .btn {
+        background-color: black;
+        font-size: 16px;
+        color: white;
+    }
+
+}
+
+
+
+@media (min-width:300px) and (max-width: 400px) {
+    
+    .btn {
+        background-color: green;
+        font-size: 20px;
+        color: white;
+        padding: 10px 15px;
+    }
+
+}
+
+
+@media (min-width:500px) and (max-width: 600px) {
+    
+    .btn {
+        background-color: brown;
+        font-size: 20px;
+        color: white;
+        padding: 10px 15px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+    
+    .flex {
+        flex-direction: column;
+    }
+
+}
