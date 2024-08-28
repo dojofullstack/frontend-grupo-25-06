@@ -114,3 +114,10 @@ console.log(seriesNetflix.includes("Batman")  );
 
 // Tipo de dato Objetos
 // null y undefined
+
+
+const auto = {
+        color: "verde",
+        precio: 123,
+        mdoelo: "totyota"
+}
