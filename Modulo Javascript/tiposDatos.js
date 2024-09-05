@@ -116,8 +116,10 @@ console.log(seriesNetflix.includes("Batman")  );
 // null y undefined
 
 
+let color = "azul";
+
 const auto = {
-        color: "verde",
+        color,
         precio: 123,
         mdoelo: "totyota"
 }
