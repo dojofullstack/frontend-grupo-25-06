@@ -102,6 +102,7 @@ seriesNetflix[0] = "Simpsons Temporada 3";
 seriesNetflix[2] = "Vikingos Temporada 1";
 
 seriesNetflix[3] = null;
+delete seriesNetflix[3];
 
 
 console.log(seriesNetflix.length);
