@@ -222,6 +222,122 @@
 
 
 
+         <!-- Modal Body -->
+            <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+            <div
+                class="modal fade"
+                id="modal-product-edit"
+                tabindex="-1"
+                data-bs-backdrop="static"
+                data-bs-keyboard="false"
+                
+                role="dialog"
+                aria-labelledby="modalTitleId"
+                aria-hidden="true"
+            >
+                <div
+                    class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md"
+                    role="document"
+                >
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalTitleId">
+                                Actualizar Producto
+                            </h5>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            
+                            
+                            <form class="" action="#" method="post" id="form-product-editable">
+
+                                    <input
+                                        type="hidden"
+                                        name=""
+                                        value=""
+                                        id="product-id"
+                                        class="form-control"
+                                        placeholder=""
+                                    />
+
+
+                                <div class="mb-3">
+                                    <label for="title-product" class="form-label">Titulo:</label>
+                                    <input
+                                        type="text"
+                                        name=""
+                                        id="title-product-edit"
+                                        class="form-control"
+                                        placeholder=""
+                                        aria-describedby="helpId"
+                                    />
+                                </div>
+
+
+                                <div class="mb-3">
+                                    <label for="description-product" class="form-label">Descripcion:</label>
+                                    <textarea class="form-control" name="" id="description-product-edit" rows="3"></textarea>
+                                </div>
+
+
+                                <div class="mb-3">
+                                    <label for="img-product" class="form-label">Imagen:</label>
+                                    <input
+                                        type="url"
+                                        name=""
+                                        id="img-product-edit"
+                                        class="form-control"
+                                        placeholder=""
+                                        aria-describedby="helpId"
+                                    />
+                                </div>
+
+
+                                <div class="mb-3">
+                                    <label for="price-product" class="form-label">Precio:</label>
+                                    <input
+                                        type="number"
+                                        name=""
+                                        id="price-product-edit"
+                                        class="form-control"
+                                        placeholder=""
+                                        aria-describedby="helpId"
+                                    />
+                                </div>
+
+                            </form>
+
+
+
+
+
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn btn-danger"
+                                data-bs-dismiss="modal"
+                            >
+                                Cancelar
+                            </button>
+
+                            <button onclick="editProduct()" type="button" class="btn btn-outline-success">
+                                Actualizar
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="row" id="catalogo-wasap">
 
                 
@@ -285,6 +401,7 @@
 
 
         <script src="assets/js/app.js"></script>
+        <script src="assets/js/auth.js"></script>
 
         <!-- <script src="../estructura de datos/iteradores_foreach_map.js"></script> -->
 
@@ -293,6 +410,13 @@
             const myModalProduct = new bootstrap.Modal(
                 document.querySelector("#modal-product"),
             );
+
+            const myModalProductEditable = new bootstrap.Modal(
+                document.querySelector("#modal-product-edit"),
+            );
+
+            
+
 
 
         </script>

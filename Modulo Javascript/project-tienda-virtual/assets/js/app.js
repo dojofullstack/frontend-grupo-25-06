@@ -31,11 +31,17 @@ const createProduct = () => {
 
 
 const clearForm = () => {
-
     const formProduct =   document.querySelector("#form-product");
     formProduct.reset();
-
     myModalProduct.hide();
+    console.log("formulario limpiio");
+}
+
+
+const clearFormEditable = () => {
+    const formProduct =   document.querySelector("#form-product-editable");
+    formProduct.reset();
+    myModalProductEditable.hide();
     console.log("formulario limpiio");
 }
 
@@ -62,6 +68,9 @@ const generarCardHTML = (producto, index) => {
 
 
                             <i onclick=" deleteProduct('${producto.id}') " class="btn bi bi-trash fs-4 text-danger mx-2"></i>
+
+
+                            <i onclick=" showModalEdit('${producto.id}') " class="btn bi bi-pencil-square fs-4 text-warning mx-2"></i>
 
                             
                     </div>
@@ -262,8 +271,22 @@ const deleteProduct = (productId) => {
 
 
 
-const editProduct = (productId, itemUpdated) => {
-    console.log("updated product....", productId);
+const editProduct = () => {
+    console.log("updated product....");
+
+    const productId =   document.querySelector("#product-id").value;
+    const titleProduct =   document.querySelector("#title-product-edit").value;
+    const descriptionProduct =  document.querySelector("#description-product-edit").value;
+    const imgProduct =  document.querySelector("#img-product-edit").value;
+    const priceProduct =  document.querySelector("#price-product-edit").value;
+
+    const itemUpdated = {
+        id: productId,
+        titleProduct,
+        descriptionProduct,
+        imgProduct,
+        priceProduct
+    }
 
 
     PRODUCTOS.forEach((item, index) => {
@@ -277,6 +300,47 @@ const editProduct = (productId, itemUpdated) => {
 
     // console.log(PRODUCTOS);
     showProductFrontend();
+    
+    saveProduct();
+
+    clearFormEditable();
+
+}
+
+
+
+const showModalEdit = (productId) => {
+
+    document.querySelector("#product-id").value = productId;
+
+    const titleProduct =   document.querySelector("#title-product-edit");
+    const descriptionProduct =  document.querySelector("#description-product-edit");
+    const imgProduct =  document.querySelector("#img-product-edit");
+    const priceProduct =  document.querySelector("#price-product-edit");
+
+    myModalProductEditable.show();
+
+
+    // implenentar find o filter
+    const resultadoBusqueda =  PRODUCTOS.find( (item) => {
+
+        if (item.id === productId ){
+            return true;
+        }
+    } )
+
+
+    console.log(resultadoBusqueda);
+
+
+
+
+    titleProduct.value = resultadoBusqueda.titleProduct;
+    descriptionProduct.value = resultadoBusqueda.descriptionProduct;
+    imgProduct.value = resultadoBusqueda.imgProduct;
+    priceProduct.value = resultadoBusqueda.priceProduct;
+
+
 
 }
 
