@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import axios from "axios";
 import moment from "moment/moment";
+import { FaTrash } from "react-icons/fa";
 
 
 const API_CUSTOMER = "https://api.dojofullstack.com/api-demo/v1/customers/";
@@ -16,7 +17,7 @@ const App = () => {
     const [apellido, apellidoSet ]  = useState("");
     const [email, emailSet ]  = useState("");
     const [celular, celularSet ]  = useState("");
-    const [estadoContacto, estadoContactoSet ]  = useState("");
+    const [estadoContacto, estadoContactoSet ]  = useState("lead");
 
     const [loadingCustomer, setLoadingCustomer] = useState(false);
 
@@ -34,7 +35,7 @@ const App = () => {
       apellidoSet("");
       emailSet("");
       celularSet("");
-      estadoContactoSet("");
+      estadoContactoSet("lead");
       setStateCreateorUpdate(null);
     }
 
@@ -103,8 +104,11 @@ const App = () => {
 
     const listarContactos = () => {
 
+      setLoadingCustomer(true);
+
       axios.get(API_CUSTOMER).then((res) => {
         // console.log(res.data);
+        setLoadingCustomer(false);
         setCustomers(res.data.reverse());
       })
 
@@ -118,7 +122,7 @@ const App = () => {
 
       document.getElementById('my-drawer-4').checked = true;
 
-      axios.get( `${API_CUSTOMER}${customerId}` ).then((res) => {
+      axios.get( `${API_CUSTOMER}${customerId}/` ).then((res) => {
             console.log("consultado informacion del cliente");
             console.log(res.data);
             nombreSet(res.data.name);
@@ -128,6 +132,25 @@ const App = () => {
             estadoContactoSet(res.data.state);
 
       })
+
+    }
+
+
+
+    const deleteContact = (customerId) => {
+
+      setLoadingCustomer(true);
+
+      axios.delete(`${API_CUSTOMER}${customerId}/`).then((response) => {
+        setLoadingCustomer(false);
+        if (response.status === 204){
+          listarContactos();
+        }
+
+      }).catch(error => {
+        setLoadingCustomer(false);
+        console.log(error);
+      }  )
 
     }
 
@@ -265,7 +288,7 @@ const App = () => {
 
 
 <div className="overflow-x-auto">
-  <table className="table">
+  <table className={`table ${loadingCustomer ? "skeleton": ""} `}>
     {/* head */}
     <thead>
       <tr>
@@ -316,9 +339,14 @@ const App = () => {
               </td>
               <td>{item.phone}</td>
               <td>{item.state}</td>
-              <td>{moment(item.created).format('MMMM Do YYYY, h:mm:ss a')}</td>
+              <td>{moment(item.created).format('MMMM Do YYYY, h:mm a')}</td>
               <th>
                 <button className="btn btn-info btn-sm"  onClick={() => openModalUpdate(item.id) } >Actualizar</button>
+                
+                <button className="btn" onClick={() => deleteContact(item.id)} >
+                <FaTrash className="mx-2 text-xl text-error inline-flex" />
+                </button>
+
               </th>
             </tr>
 

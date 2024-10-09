@@ -1,3 +1,5 @@
+import { Bounce, ToastContainer } from "react-toastify";
+
 const Footer = () => {
   return (
     <>
@@ -38,6 +40,20 @@ const Footer = () => {
             </div>
           </fieldset>
         </form>
+
+
+  <ToastContainer
+position="bottom-right"
+autoClose={3000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="dark"/>
+
       </footer>
     </>
   );
