@@ -55,7 +55,11 @@ const FormLogin = () => {
                 transition: Bounce,
                 });
 
-            navigate("/");
+
+            setTimeout(() => {
+                navigate("/");
+            }, 1000); // Espera 3 segundos antes de navegar
+
 
         }).catch(error => {
             setLoadingLogin(false);
