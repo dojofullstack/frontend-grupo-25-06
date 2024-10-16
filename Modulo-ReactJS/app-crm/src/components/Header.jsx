@@ -1,11 +1,65 @@
+import { useContext, useEffect } from "react";
+import { ThemeContext } from "../Context";
+import useStore from "../useStore";
+import { useNavigate } from "react-router-dom";
+
 const Header = () => {
+  const navigate = useNavigate();
+
+
+  const {theme, changeTheme} = useContext(ThemeContext);
+
+
+  const perfil = useStore((state) => state.perfil);
+  const isLogin = useStore((state) => state.isLogin);
+  const authUserMe = useStore((state) => state.authUserMe);
+
+
+  console.log(perfil);
+  console.log(isLogin);
+  //  console.log(changeTheme);
+
+
+  const getToken = () => {
+    const accessToken = localStorage.getItem("access");
+    if (accessToken){
+        // validar si el token esta activo
+        return accessToken
+    }
+}
+
+
+
+
+   useEffect(() => {
+
+      const accessToken = getToken();
+
+      if (accessToken || isLogin){
+        authUserMe();
+      } else {
+        navigate("/login");
+      }
+
+  }, []);
+
+  
+
+
   return (
     <>
-      <header>
-        <div className="navbar bg-base-100">
+      <header   >
+        <div className="navbar bg-base-100" style={{ backgroundColor: theme }}>
           <div className="flex-1">
             <a className="btn btn-ghost text-xl">daisyUI</a>
           </div>
+
+          <div>
+            <button className="btn btn-accent" onClick={() =>  changeTheme("green") }>
+              Cambiar Tema
+            </button>
+          </div>
+
           <div className="flex-none gap-2">
             <div className="form-control">
               <input
@@ -14,6 +68,8 @@ const Header = () => {
                 className="input input-bordered w-24 md:w-auto"
               />
             </div>
+
+            {isLogin && perfil &&
             <div className="dropdown dropdown-end">
               <div
                 tabIndex={0}
@@ -33,18 +89,20 @@ const Header = () => {
               >
                 <li>
                   <a className="justify-between">
-                    Profile
-                    <span className="badge">New</span>
+                    Perfil
+                    <span className="badge bg-dark">{perfil.username}</span>
                   </a>
                 </li>
                 <li>
                   <a>Settings</a>
                 </li>
                 <li>
-                  <a>Logout</a>
+                  <a>Cerrar sesion</a>
                 </li>
               </ul>
             </div>
+              }
+
           </div>
         </div>
       </header>

@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Bounce, toast } from "react-toastify";
+import useStore from "../../useStore";
 
 
 const API_LOGIN = "https://api.dojofullstack.com/api/auth/jwt/create/";
@@ -19,11 +20,18 @@ const FormLogin = () => {
 
     const navigate = useNavigate();
 
+    // const perfil= useStore((state) => state.perfil);
+    const updatePerfil = useStore((state) => state.updatePerfil);
+    const updateIsLogin = useStore((state) => state.updateIsLogin);
+
+
+    console.log(updateIsLogin);
+
+
 
     const loginUser = () => {
 
-
-        setLoadingLogin(true);
+      setLoadingLogin(true);
 
         const data = {
             username,
@@ -55,10 +63,11 @@ const FormLogin = () => {
                 transition: Bounce,
                 });
 
-
+            updateIsLogin(true);
+            
             setTimeout(() => {
                 navigate("/");
-            }, 1000); // Espera 3 segundos antes de navegar
+            }, 2000); // Espera 3 segundos antes de navegar
 
 
         }).catch(error => {
@@ -130,6 +139,19 @@ const FormLogin = () => {
 };
 
 const Login = () => {
+
+  const navigate = useNavigate();
+  const isLogin = useStore((state) => state.isLogin);
+
+
+  //cambios
+  useEffect(() => {
+    if (isLogin){
+      navigate("/");
+    }
+});
+
+
 
     return (
         <>
