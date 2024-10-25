@@ -1,10 +1,13 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../Context";
 import useStore from "../useStore";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Header = () => {
   const navigate = useNavigate();
+
+  const [searchInput, setSearchInput] =  useState("");
 
 
   const {theme, changeTheme} = useContext(ThemeContext);
@@ -13,11 +16,34 @@ const Header = () => {
   const perfil = useStore((state) => state.perfil);
   const isLogin = useStore((state) => state.isLogin);
   const authUserMe = useStore((state) => state.authUserMe);
+  const closeLogin = useStore((state) => state.closeLogin);
+
+  const updateCustomers = useStore((state) => state.updateCustomers);
 
 
-  console.log(perfil);
-  console.log(isLogin);
+  // console.log(perfil);
+  // console.log(isLogin);
   //  console.log(changeTheme);
+
+  const searchContacto = () => {
+
+    console.log("buscando", searchInput);
+    
+    // setLoadingCustomer(true);
+
+
+    const API_CUSTOMER = "https://api.dojofullstack.com/api-demo/v1/customers/";
+
+    //cambios
+    axios.get(`${API_CUSTOMER}?search=${searchInput}`, {headers: {
+      'Authorization': null,
+    }}).then((res) => {
+      // console.log(res.data);
+      // setLoadingCustomer(false);
+      updateCustomers(res.data.results);
+    });
+  };
+
 
 
   const getToken = () => {
@@ -37,9 +63,8 @@ const Header = () => {
 
       if (accessToken || isLogin){
         authUserMe();
-      } else {
-        navigate("/login");
       }
+
 
   }, []);
 
@@ -64,8 +89,16 @@ const Header = () => {
             <div className="form-control">
               <input
                 type="text"
-                placeholder="Search"
+                placeholder="Buscar contacto"
                 className="input input-bordered w-24 md:w-auto"
+                onChange={(e) => setSearchInput(e.target.value)}
+                onKeyDown={(e) => {
+
+                  if (e.code === "Enter"){
+                    searchContacto();
+                  }
+
+                }  }
               />
             </div>
 
@@ -96,7 +129,8 @@ const Header = () => {
                 <li>
                   <a>Settings</a>
                 </li>
-                <li>
+
+                <li onClick={closeLogin}>
                   <a>Cerrar sesion</a>
                 </li>
               </ul>

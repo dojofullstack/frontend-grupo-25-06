@@ -11,6 +11,44 @@ const getToken = () => {
     }
 }
 
+const getTokenRefresh = () => {
+    const refreshToken = localStorage.getItem("refresh");
+    if (refreshToken){
+        // validar si el token esta activo
+        return refreshToken
+    }
+}
+
+
+
+const updateAccessToken = () => {
+
+      const refresh = getTokenRefresh();
+
+      if (!refresh){
+        return;
+      }
+
+      const data = {
+        refresh: refresh,
+      }
+
+      const API_REFRESH_TK = "https://api.dojofullstack.com/api/auth/jwt/refresh/";
+
+      axios.post(API_REFRESH_TK, data).then((response) => {
+
+          const {access} = response.data;
+          console.log(access);
+          localStorage.setItem("access", access);
+
+      }).catch(error => {
+          console.log(error);
+      })
+
+  }
+
+
+
 
 const authUserMe = (set) => {
 
@@ -28,16 +66,31 @@ const authUserMe = (set) => {
         })
     }).catch((error) => {
         localStorage.removeItem("access");
+        updateAccessToken();
     })
 
 }
 
 
 
+const closeLogin = (set) => {
+
+    set({
+        perfil: null,
+        isLogin: false
+    })
+
+    localStorage.removeItem("access");
+    localStorage.removeItem("refresh");
+
+}
+
 
 
 const useStore = create((set, get) => (
     {
+        customers: [],
+        updateCustomers: (data) => set({customers: data}), 
         theme: "dark",
         perfil: null,
         isLogin: false,
@@ -46,8 +99,9 @@ const useStore = create((set, get) => (
         changeTheme: (color) => set({theme: color}),
         accessToken: "",
         refresToken: "",
-        authUserMe: () => authUserMe(set)
-    }
+        authUserMe: () => authUserMe(set),
+        closeLogin: () => closeLogin(set)
+     }
 ))
 
 

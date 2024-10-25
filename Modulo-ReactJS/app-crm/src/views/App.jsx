@@ -17,8 +17,10 @@ const App = () => {
   const isLogin = useStore((state) => state.isLogin);
   const authUserMe = useStore((state) => state.authUserMe);
 
+  const customers = useStore((state) => state.customers);
+  const updateCustomers = useStore((state) => state.updateCustomers);
 
-  const [customers, setCustomers] = useState([]);
+  // const [customers, setCustomers] = useState([]);
 
   const [nombre, nombreSet] = useState("");
   const [apellido, apellidoSet] = useState("");
@@ -37,7 +39,7 @@ const App = () => {
 
   // console.log("celular", celular);
   // console.log("celularSet", celularSet);
-  // console.log(customers);
+  console.log(customers);
 
   console.log("isLogin", isLogin);
   console.log("perfil", perfil);
@@ -117,7 +119,7 @@ const App = () => {
     }}).then((res) => {
       // console.log(res.data);
       setLoadingCustomer(false);
-      setCustomers(res.data.results);
+      updateCustomers(res.data.results);
     });
   };
 
@@ -168,7 +170,7 @@ const App = () => {
     }
 
 
-  }, []);
+  }, [isLogin]);
 
 
 
